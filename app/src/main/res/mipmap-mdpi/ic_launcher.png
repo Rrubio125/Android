@@ -1,0 +1,55 @@
+package com.example.practica_radiobutton;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    private EditText et1, et2;
+    private RadioButton rb1, rb2, rb3, rb4;
+    private TextView tv1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        et1 = (EditText)findViewById(R.id.txt_num1);
+        et2 = (EditText)findViewById(R.id.txt_num2);
+        rb1 = (RadioButton)findViewById(R.id.rb_sum);
+        rb2 = (RadioButton)findViewById(R.id.rb_res);
+        rb3 = (RadioButton)findViewById(R.id.rb_mul);
+        rb4 = (RadioButton)findViewById(R.id.rb_div);
+        tv1 = (TextView)findViewById(R.id.txt_res);
+
+    }
+
+    public void Calcular (View view){
+        String valor1_string = et1.getText().toString();
+        String valor2_string = et2.getText().toString();
+
+        int valor1_num = Integer.parseInt(valor1_string);
+        int valor2_num = Integer.parseInt(valor2_string);
+
+        if (rb1.isChecked()){
+            int resultado_suma = valor1_num + valor2_num;
+            String resultado = String.valueOf(resultado_suma);
+            tv1.setText(resultado);
+        } else if (rb2.isChecked()){
+            int resultado_resta = valor1_num - valor2_num;
+            String resultado = String.valueOf(resultado_resta);
+            tv1.setText(resultado);
+        } else if (rb3.isChecked()){
+            int resultado_multiplicacion = valor1_num * valor2_num;
+            String resultado = String.valueOf(resultado_multiplicacion);
+            tv1.setText(resultado);
+        } else if (rb4.isChecked()) {
+            int resultado_division = valor1_num / valor2_num;
+            String resulta
